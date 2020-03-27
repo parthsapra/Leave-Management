@@ -1,0 +1,22 @@
+<div class="container">
+    <button class="btn btn-primary btn-block" routerLink="addemployee">Add Employee</button>
+    <button class="btn btn-primary btn-block" routerLink="addleave" style="margin-top: 10px;">Add Leave</button>
+</div>
+<div class="container" style="margin-top: 1cm;">
+    <table border="1">
+        <tr>
+            <th>LeaveId</th>
+            <th>EmpId</th>
+            <th>StartDate</th>
+            <th>EndDate</th>
+            <th>LeaveDescription</th>
+        </tr>
+        <tr *ngFor="let leave of leaves; let i=index;">
+            <td>{{leave.leaveId}}</td>
+            <td>{{leave.EmpId}}</td>
+            <td>{{leave.StartDate}}</td>
+            <td>{{leave.EndDate}}</td>
+            <td>{{leave.leaveDescription}}</td>
+        </tr>
+    </table>
+</div>

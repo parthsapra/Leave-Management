@@ -1,0 +1,30 @@
+<div class="container" style="margin:1cm;">
+    <h3>Add Leave Information:</h3>
+    <form [formGroup]="leaveAddFormGroup">
+        <div class="form-group">
+            <input type="number" class="form-control" formControlName="employeeId" placeholder="employee code" required>
+            <small class="form-text text-danger"
+                *ngIf="leaveAddFormGroup.controls.employeeId.invalid && leaveAddFormGroup.controls.employeeId.touched">invalid input</small>
+        </div>
+        <div class="form-group">
+            <input type="date" class="form-control" (blur)="validateStartDate()"formControlName="startDate" required>
+            <small class="form-text text-danger"
+                *ngIf="leaveAddFormGroup.controls.startDate.invalid && leaveAddFormGroup.controls.startDate.touched">this
+                feild is require</small>
+        </div>
+        <div class="form-group">
+            <input type="date" class="form-control" (blur)="compareTwoDates()" formControlName="endDate" required>
+            <small class="form-text text-danger"
+                *ngIf="leaveAddFormGroup.controls.endDate.invalid && leaveAddFormGroup.controls.endDate.touched ">this
+                feild is require</small>
+                <small class="form-text text-danger" *ngIf="error.isError">{{error.errorMessage}}</small>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="leaveDescription" placeholder="leave description(optional)">
+        </div>
+
+        <button class="btn btn-primary btn-block" [disabled]="!leaveAddFormGroup.valid" (click)="addLeave()">Add
+            Leave</button>
+        <button class="btn btn-primary btn-block" routerLink="">Back to List</button>
+    </form>
+</div>

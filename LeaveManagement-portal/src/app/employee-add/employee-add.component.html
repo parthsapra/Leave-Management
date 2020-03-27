@@ -1,0 +1,23 @@
+<div class="container" style="margin:1cm;">
+    <h3>Add Employee Detail:</h3>
+    <form [formGroup]="employeeAddFormGroup">
+        <div class="form-group">
+            <input type="number" class="form-control" formControlName="employeeId" placeholder="employee code" required>
+            <small class="form-text text-danger"
+                *ngIf="employeeAddFormGroup.controls.employeeId.invalid && employeeAddFormGroup.controls.employeeId.touched">invalid input</small>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="employeeName" placeholder="employee employeeName" required>
+            <small class="form-text text-danger"
+                *ngIf="employeeAddFormGroup.controls.employeeName.invalid && employeeAddFormGroup.controls.employeeName.touched">invalid input</small>
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" formControlName="contactNumber" placeholder="employee contact number" required>
+            <small class="form-text text-danger"
+                *ngIf="employeeAddFormGroup.controls.contactNumber.invalid && employeeAddFormGroup.controls.contactNumber.touched">invalid input</small>
+        </div>
+        <button class="btn btn-primary btn-block" [disabled]="!employeeAddFormGroup.valid" (click)="addEmployee()">Add
+            Employee</button>
+        <button class="btn btn-primary btn-block" routerLink="">Back to List</button>
+    </form>
+</div>
